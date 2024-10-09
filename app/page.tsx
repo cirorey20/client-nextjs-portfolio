@@ -14,7 +14,7 @@ export default function Home() {
 
         priority
       />     
-        <h1>Ciro DJR</h1>
+        <h1>Ciro DJR :)</h1>
       </main>
       
     </div>

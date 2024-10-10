@@ -1,16 +1,12 @@
 "use client"; // Esto convierte al componente en un Client Component
 import { useEffect, useState } from "react";
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 // Ajustamos la interfaz para que coincida con la nueva estructura del JSON
 interface UserData {
-  name: string;
-  nameLast: string;
   email: string;
-  headLine: string;
   about: string;
   experience: string;
-  skillTech: string; // Sigue siendo un string JSON, lo manejaremos más adelante si es necesario
-  age: string;
   img: string;
   github: string;
   linkdin: string;
@@ -45,7 +41,14 @@ export default function About() {
                     <p>{data? `${data.about}` : 'Cargando...'}</p>
                     <p className="mt-2"><strong>Residencia:</strong> {data?.experience}</p>
                     <p className="mt-2"><strong>Email:</strong> {data?.email}</p>
-                    {/* <p className="mt-2"><strong>Edad:</strong> {data?.age}</p> */}
+                    <div className="flex justify-center md:justify-start mt-4 space-x-4">
+                      <a href={data?.github} target="_blank" rel="noopener noreferrer">
+                        <FaGithub className="h-6 w-6 text-gray-800 hover:text-gray-600" />
+                      </a>
+                      <a href={data?.linkdin} target="_blank" rel="noopener noreferrer">
+                        <FaLinkedin className="h-6 w-6 text-blue-800 hover:text-blue-600" />
+                      </a>
+                    </div>
                 </div>
             </div>
         </section>

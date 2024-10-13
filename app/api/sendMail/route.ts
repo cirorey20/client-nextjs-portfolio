@@ -27,9 +27,14 @@ export async function POST(request: Request) {
 
     // Devuelve una respuesta exitosa
     return NextResponse.json({ success: true }, { status: 200 });
-  } catch (error: any) {
-    console.error('Error enviando correo:', error);
-    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+  } catch (error: unknown) {
+    if(error instanceof Error) {
+      console.error('Error enviando correo:', error);
+      return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+    } else {
+      console.error('Error enviando correo:', error);
+      return NextResponse.json({ success: false, error: 'Error desconocido' }, { status: 500 });
+    }
   }
 }
 

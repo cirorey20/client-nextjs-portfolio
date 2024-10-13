@@ -19,7 +19,7 @@ export async function POST(request: Request) {
       to: process.env.USER_MAIL_GOOGLE,
       subject: `Nuevo mensaje de ${name}`,
       text: message,
-      replyTo: email // Aquí el email del remitente real
+      replyTo: email // Aquí el email del remitente real.
     };
 
     // Envía el correo

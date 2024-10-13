@@ -28,6 +28,10 @@ export default function Contact() {
       const data = await response.json();
       if (data.success) {
         setResponseMessage("Mensaje enviado con éxito.");
+        // Limpiar los campos de entrada al enviar correctamente
+        setName("");
+        setEmail("");
+        setMessage("");
       } else {
         setResponseMessage("Error al enviar el mensaje.");
       }
